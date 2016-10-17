@@ -22,7 +22,7 @@
       "type": "vagrant",
       "override": {
         "virtualbox": {
-          "output": "centos-7-puppet-virtualbox.box"
+          "output": "CentOS-7.2-puppet-virtualbox.box"
         }
       }
     }
