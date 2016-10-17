@@ -37,7 +37,7 @@
       "http_directory": "http",
       "iso_checksum": "4c6c65b5a70a1142dadb3c65238e9e97253c0d3a",
       "iso_checksum_type": "sha1",
-      "iso_url": "/home/s.kilduff/Downloads/CentOS-7-x86_64-DVD-1511.iso",
+      "iso_url": "~/Downloads/CentOS-7-x86_64-DVD-1511.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
