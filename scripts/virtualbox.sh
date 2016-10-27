@@ -2,7 +2,6 @@
 yum clean all
 yum update -y
 yum install -y gcc
-yum install -y kernel-devel
 yum install -y perl  
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 cd /tmp
