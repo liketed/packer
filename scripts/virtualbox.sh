@@ -9,4 +9,4 @@ mount -o loop /home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
 sh /mnt/VBoxLinuxAdditions.run --nox11
 umount /mnt
 rm -rf /home/vagrant/VBoxGuestAdditions_*.iso
-rm -rf /etc/sysconfig/network-scripts/ifcfg-*
+rm -rf /etc/sysconfig/network-scripts/ifcfg-enp0s3
