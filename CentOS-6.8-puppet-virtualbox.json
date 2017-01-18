@@ -22,7 +22,7 @@
       "type": "vagrant",
       "override": {
         "virtualbox": {
-          "output": "CentOS-7.2-puppet-virtualbox.box"
+          "output": "CentOS-6.8-puppet-virtualbox.box"
         }
       }
     }
@@ -31,16 +31,15 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/default_kernel4.cfg<enter><wait>"
+        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-6.8.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
-      "disk_size": 41000,
-      "headless": true,
+      "disk_size": 1024,
       "guest_os_type": "RedHat_64",
       "http_directory": "http",
-      "iso_checksum": "783eef50e1fb91c78901d0421d8114a29b998478",
-      "iso_checksum_type": "sha1",
-      "iso_url": "http://mirror.netcologne.de/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "0ca12fe5f28c2ceed4f4084b41ff8a0b",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://mirror.netcologne.de/centos/6/isos/x86_64/CentOS-6.8-x86_64-minimal.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -51,7 +50,7 @@
       "vboxmanage": [
         [ "modifyvm", "{{.Name}}", "--memory", "512" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
-        [ "createhd", "--format", "VMDK", "--filename", "disk2.vmdk", "--variant", "STREAM", "--size", "3000" ],
+        [ "createhd", "--format", "VMDK", "--filename", "disk2.vmdk", "--variant", "STREAM", "--size", "40000" ],
         [ "storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "disk2.vmdk" ]
       ]
     }
