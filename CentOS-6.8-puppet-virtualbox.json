@@ -8,7 +8,7 @@
           "scripts": [
             "scripts/base.sh",
             "scripts/virtualbox.sh",
-            "scripts/puppet.sh",
+            "scripts/puppet6.sh",
             "scripts/packages.sh",
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
