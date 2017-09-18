@@ -7,7 +7,7 @@
         "virtualbox-iso": {
           "scripts": [
             "scripts/base.sh",
-            "scripts/virtualbox.sh",
+            "scripts/vmware.sh",
             "scripts/puppet7.sh",
             "scripts/packages.sh",
             "scripts/cleanup.sh",
@@ -22,7 +22,7 @@
       "type": "vagrant",
       "override": {
         "virtualbox": {
-          "output": "CentOS-7.3-puppet-virtualbox.box"
+          "output": "CentOS-7-vmware.box"
         }
       }
     }
@@ -31,10 +31,10 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-7.3.cfg<enter><wait>"
+        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/default.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
-      "disk_size": 41000,
+      "disk_size": 1024,
       "headless": true,
       "guest_os_type": "RedHat_64",
       "http_directory": "http",
@@ -51,7 +51,7 @@
       "vboxmanage": [
         [ "modifyvm", "{{.Name}}", "--memory", "512" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
-        [ "createhd", "--format", "VMDK", "--filename", "disk2.vmdk", "--variant", "STREAM", "--size", "40000" ],
+        [ "createhd", "--format", "VMDK", "--filename", "disk2.vmdk", "--variant", "STREAM", "--size", "42000" ],
         [ "storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "hdd", "--medium", "disk2.vmdk" ]
       ]
     }
