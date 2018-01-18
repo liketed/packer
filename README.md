@@ -7,7 +7,7 @@ All boxes can built using packer build filename.json
 This box is supposed to be CentOS 6 updated to latest version, with latest VirtualBox additions integrated, nothing much more than that.
 Last tested/updated with CentOS 6.9 and VirtualBox 5.2.6 on 20180118
 
-# CentOS-7-virtualbox.json
+### CentOS-7-virtualbox.json
 
 This box is supposed to be CentOS 7 updated to latest version, with latest VirtualBox additions integrated, nothing much more than that.
 Last tested/updated with CentOS 7.4 and VirtualBox 5.2.6 on 20180118
