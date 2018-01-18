@@ -1,6 +1,8 @@
 ## I still need custom vagrant boxes, and while everyone else seems to be abonding their packer files for docker files I still need to build some custom boxes.
 
-All boxes can built using packer build filename.json
+All boxes can built on the command line with:
+
+    packer build filename.json
 
 ### CentOS-6-virtualbox.json
 
