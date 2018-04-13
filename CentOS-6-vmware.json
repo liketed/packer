@@ -4,10 +4,10 @@
       "type": "shell",
       "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
       "override": {
-        "virtualbox-iso": {
+        "vmware-iso": {
           "scripts": [
             "scripts/base.sh",
-            "scripts/virtualbox.sh",
+            "scripts/vmware.sh",
             "scripts/packages.sh",
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
@@ -18,19 +18,15 @@
   ],
   "post-processors": [
     {
-      "type": "vagrant",
-      "override": {
-        "virtualbox": {
-          "output": "CentOS-6-virtualbox.box"
-        }
-      }
+      "output": "CentOS-6-{{.Provider}}.box",
+      "type": "vagrant"
     }
   ],
   "builders": [
     {
-      "type": "virtualbox-iso",
+      "type": "vmware-iso",
       "boot_command": [
-        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-6.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-6.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 41240,
@@ -44,13 +40,17 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version",
-      "vboxmanage": [
-        [ "modifyvm", "{{.Name}}", "--memory", "512" ],
-        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
-      ]
+      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
+      "tools_upload_flavor": "linux",
+      "vm_name": "packer-centos-6-x86_64",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "512",
+        "numvcpus": "1"
+      },
+      "vnc_disable_password": true,
+      "vnc_port_min": "5900",
+      "vnc_port_max": "5900"
     }
   ]
 }

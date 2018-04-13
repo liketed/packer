@@ -11,3 +11,4 @@ rm -rf /tmp/vmware /tmp/vmware-archive
 rm -f /home/vagrant/*.iso
 rm -f /etc/udev/rules.d/70-persistent-net.rules
 rm -f /etc/sysconfig/network-scripts/ifcfg-ens33
+sed -i "/^HWADDR/d"  /etc/sysconfig/network-scripts/ifcfg-eth0
