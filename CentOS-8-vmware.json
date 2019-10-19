@@ -18,7 +18,7 @@
   ],
   "post-processors": [
     {
-      "output": "CentOS-7-{{.Provider}}.box",
+      "output": "CentOS-8-{{.Provider}}.box",
       "type": "vagrant"
     }
   ],
@@ -26,29 +26,26 @@
     {
       "type": "vmware-iso",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-7.cfg<enter><wait>"
+        "<tab> text selinux=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-8.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 41000,
       "guest_os_type": "centos-64",
-      "headless": true,
+      "headless": false,
       "http_directory": "http",
-      "iso_checksum": "9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d",
+      "iso_checksum": "ea17ef71e0df3f6bf1d4bf1fc25bec1a76d1f211c115d39618fe688be34503e8",
       "iso_checksum_type": "sha256",
-      "iso_urls": [
-        "CentOS-7-x86_64-Minimal-1908.iso",
-        "https://mirror.netcologne.de/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1908.iso"
-      ],
+      "iso_url": "http://mirror.netcologne.de/centos/8/isos/x86_64/CentOS-8-x86_64-1905-dvd1.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
       "tools_upload_flavor": "linux",
-      "vm_name": "packer-centos-7-x86_64",
+      "vm_name": "packer-centos-8-x86_64",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
-        "memsize": "512",
+        "memsize": "768",
         "numvcpus": "2"
       }
     }
