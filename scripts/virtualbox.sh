@@ -1,7 +1,7 @@
 # Installing packages separately to debug something
 yum clean all
-yum update -y
 yum install -y epel-release
+yum update -y
 yum install -y gcc
 yum install -y perl  
 yum install -y bzip2
